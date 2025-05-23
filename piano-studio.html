@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>琴韵钢琴工作室 - 在线报名</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#D4AF37',
+            dark: '#1A1A2E',
+            light: '#F5F7FA',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .bg-blur {
+        backdrop-filter: blur(8px);
+      }
+      .transition-custom {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+  </style>
+  
+  <!-- 导入字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-inter bg-light text-dark antialiased">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 bg-blur shadow-sm">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-2">
+        <i class="fa-solid fa-music text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-primary">琴韵钢琴工作室</span>
+      </a>
+      
+      <!-- 桌面导航 -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="font-medium hover:text-primary transition-custom">首页</a>
+        <a href="#about" class="font-medium hover:text-primary transition-custom">关于我们</a>
+        <a href="#courses" class="font-medium hover:text-primary transition-custom">课程介绍</a>
+        <a href="#teachers" class="font-medium hover:text-primary transition-custom">师资力量</a>
+        <a href="#enroll" class="font-medium hover:text-primary transition-custom">立即报名</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-dark hover:text-primary">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t shadow-lg">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="#home" class="py-2 font-medium hover:text-primary transition-custom">首页</a>
+        <a href="#about" class="py-2 font-medium hover:text-primary transition-custom">关于我们</a>
+        <a href="#courses" class="py-2 font-medium hover:text-primary transition-custom">课程介绍</a>
+        <a href="#teachers" class="py-2 font-medium hover:text-primary transition-custom">师资力量</a>
+        <a href="#enroll" class="py-2 font-medium hover:text-primary transition-custom">立即报名</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 英雄区域 -->
+  <section id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 bg-gradient-to-br from-primary/5 to-light">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark mb-4">
+          开启<span class="text-primary">音乐</span>之旅<br>
+          成就<span class="text-primary">艺术</span>梦想
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
+          琴韵钢琴工作室专注于为各年龄段学员提供专业、系统的钢琴教育，让每一位学员都能感受音乐的魅力。
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#enroll" class="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-custom text-center">
+            立即报名
+          </a>
+          <a href="#courses" class="bg-white hover:bg-gray-50 text-primary border border-primary font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-custom text-center">
+            了解课程
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 relative">
+        <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-custom">
+          <img src="https://picsum.photos/id/1067/800/600" alt="钢琴教学" class="w-full h-auto">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+            <div class="p-6 text-white">
+              <p class="text-lg font-medium">专业钢琴教学</p>
+              <p class="text-sm opacity-90">由资深钢琴教师一对一指导</p>
+            </div>
+          </div>
+        </div>
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/20 rounded-full blur-2xl -z-10"></div>
+        <div class="absolute -top-6 -right-6 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于我们 -->
+  <section id="about" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">关于我们</h2>
+        <div class="w-20 h-1 bg-primary mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <h3 class="text-2xl font-bold mb-6">琴韵钢琴工作室简介</h3>
+          <p class="text-gray-600 mb-4">琴韵钢琴工作室成立于2010年，是一家专注于钢琴教育的专业机构。我们拥有一支经验丰富、教学成果显著的教师团队，致力于为学员提供高品质的钢琴教学服务。</p>
+          <p class="text-gray-600 mb-6">多年来，我们坚持"以学生为中心"的教学理念，根据每个学员的特点和需求制定个性化教学方案，帮助学员在轻松愉快的氛围中掌握钢琴技能，培养音乐素养。</p>
+          
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="bg-light p-6 rounded-xl shadow-md">
+              <div class="text-primary text-3xl mb-2"><i class="fa-solid fa-users"></i></div>
+              <h4 class="font-bold text-xl mb-1">1000+</h4>
+              <p class="text-gray-600">毕业学员</p>
+            </div>
+            <div class="bg-light p-6 rounded-xl shadow-md">
+              <div class="text-primary text-3xl mb-2"><i class="fa-solid fa-trophy"></i></div>
+              <h4 class="font-bold text-xl mb-1">50+</h4>
+              <p class="text-gray-600">比赛奖项</p>
+            </div>
+            <div class="bg-light p-6 rounded-xl shadow-md">
+              <div class="text-primary text-3xl mb-2"><i class="fa-solid fa-certificate"></i></div>
+              <h4 class="font-bold text-xl mb-1">15</h4>
+              <p class="text-gray-600">专业教师</p>
+            </div>
+            <div class="bg-light p-6 rounded-xl shadow-md">
+              <div class="text-primary text-3xl mb-2"><i class="fa-solid fa-calendar-days"></i></div>
+              <h4 class="font-bold text-xl mb-1">13年</h4>
+              <p class="text-gray-600">教学经验</p>
+            </div>
+          </div>
+          
+          <a href="#enroll" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-custom">
+            预约体验课
+          </a>
+        </div>
+        
+        <div class="order-1 md:order-2 relative">
+          <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://picsum.photos/id/1068/800/600" alt="钢琴工作室环境" class="w-full h-auto">
+          </div>
+          <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
+          <div class="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 课程介绍 -->
+  <section id="courses" class="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-light">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">精品课程</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">我们提供多样化的钢琴课程，满足不同年龄段和水平的学员需求</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 儿童启蒙课程 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-custom group">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://picsum.photos/id/1069/600/400" alt="儿童启蒙课程" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium py-1 px-3 rounded-full">
+              热门
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">儿童启蒙课程</h3>
+            <p class="text-gray-600 mb-4">针对4-8岁儿童的音乐启蒙课程，通过游戏化教学培养音乐感知和基础钢琴技能。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-bold text-xl">¥180<span class="text-gray-500 text-base font-normal">/课时</span></span>
+              <a href="#enroll" class="text-primary font-medium hover:text-primary/80 transition-custom">
+                立即报名 <i class="fa-solid fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 青少年考级课程 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-custom group">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://picsum.photos/id/1070/600/400" alt="青少年考级课程" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">青少年考级课程</h3>
+            <p class="text-gray-600 mb-4">为9-18岁青少年提供专业考级辅导，系统学习钢琴技巧，提高音乐表现力。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-bold text-xl">¥220<span class="text-gray-500 text-base font-normal">/课时</span></span>
+              <a href="#enroll" class="text-primary font-medium hover:text-primary/80 transition-custom">
+                立即报名 <i class="fa-solid fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 成人兴趣课程 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-custom group">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://picsum.photos/id/1071/600/400" alt="成人兴趣课程" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">成人兴趣课程</h3>
+            <p class="text-gray-600 mb-4">专为成人设计的兴趣培养课程，轻松学习钢琴，丰富业余生活，提升个人气质。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-primary font-bold text-xl">¥200<span class="text-gray-500 text-base font-normal">/课时</span></span>
+              <a href="#enroll" class="text-primary font-medium hover:text-primary/80 transition-custom">
+                立即报名 <i class="fa-solid fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#enroll" class="inline-block bg-white hover:bg-gray-50 text-primary border border-primary font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-custom">
+          查看全部课程
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 师资力量 -->
+  <section id="teachers" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">优秀师资</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">我们的教师团队由资深钢琴教育家和演奏家组成，拥有丰富的教学经验和舞台经验</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- 教师1 -->
+        <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-custom group">
+          <div class="relative overflow-hidden">
+            <img src="https://picsum.photos/id/1005/400/500" alt="张老师" class="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+              <div>
+                <p class="text-white font-medium mb-1">中央音乐学院钢琴系硕士</p>
+                <p class="text-white/80 text-sm">15年教学经验，曾获全国钢琴比赛金奖</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold mb-1">张雅琴</h3>
+            <p class="text-primary font-medium">儿童启蒙课程导师</p>
+          </div>
+        </div>
+        
+        <!-- 教师2 -->
+        <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-custom group">
+          <div class="relative overflow-hidden">
+            <img src="https://picsum.photos/id/1012/400/500" alt="李老师" class="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+              <div>
+                <p class="text-white font-medium mb-1">上海音乐学院钢琴系博士</p>
+                <p class="text-white/80 text-sm">国际钢琴比赛评委，出版多部钢琴教学专著</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold mb-1">李明远</h3>
+            <p class="text-primary font-medium">青少年考级课程导师</p>
+          </div>
+        </div>
+        
+        <!-- 教师3 -->
+        <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-custom group">
+          <div class="relative overflow-hidden">
+            <img src="https://picsum.photos/id/1027/400/500" alt="王老师" class="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+              <div>
+                <p class="text-white font-medium mb-1">维也纳音乐与表演艺术大学钢琴演奏硕士</p>
+                <p class="text-white/80 text-sm">曾在欧洲多个国家举办个人钢琴独奏音乐会</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold mb-1">王佳宁</h3>
+            <p class="text-primary font-medium">成人兴趣课程导师</p>
+          </div>
+        </div>
+        
+        <!-- 教师4 -->
+        <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-custom group">
+          <div class="relative overflow-hidden">
+            <img src="https://picsum.photos/id/1074/400/500" alt="刘老师" class="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+              <div>
+                <p class="text-white font-medium mb-1">中国音乐学院钢琴系副教授</p>
+                <p class="text-white/80 text-sm">全国钢琴考级评委，培养多名优秀学生考入专业音乐院校</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold mb-1">刘思远</h3>
+            <p class="text-primary font-medium">专业提升课程导师</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 学员风采 -->
+  <section class="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-light">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">学员风采</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">见证学员们的成长与蜕变，分享他们的音乐故事</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 学员1 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg p-6">
+          <div class="flex items-center mb-6">
+            <img src="https://picsum.photos/id/1025/100/100" alt="学员照片" class="w-16 h-16 rounded-full object-cover mr-4">
+            <div>
+              <h3 class="text-lg font-bold">陈思瑶</h3>
+              <p class="text-primary text-sm">儿童启蒙班 · 8岁</p>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">"在这里学习钢琴已经两年了，我从一开始的零基础到现在能够流畅弹奏多首曲目，非常感谢张老师的耐心教导。"</p>
+          <div class="text-secondary">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        
+        <!-- 学员2 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg p-6">
+          <div class="flex items-center mb-6">
+            <img src="https://picsum.photos/id/1076/100/100" alt="学员照片" class="w-16 h-16 rounded-full object-cover mr-4">
+            <div>
+              <h3 class="text-lg font-bold">王明宇</h3>
+              <p class="text-primary text-sm">青少年考级班 · 15岁</p>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">"在李老师的指导下，我顺利通过了钢琴十级考试，并且在今年的市级钢琴比赛中获得了二等奖。琴韵钢琴工作室是我学琴路上的重要一站。"</p>
+          <div class="text-secondary">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+        </div>
+        
+        <!-- 学员3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg p-6">
+          <div class="flex items-center mb-6">
+            <img src="https://picsum.photos/id/1062/100/100" alt="学员照片" class="w-16 h-16 rounded-full object-cover mr-4">
+            <div>
+              <h3 class="text-lg font-bold">林小雨</h3>
+              <p class="text-primary text-sm">成人兴趣班 · 32岁</p>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">"一直以来都有一个钢琴梦，工作后终于有机会实现。王老师的教学方法非常适合成人，让我在短时间内就能弹奏自己喜欢的曲子。"</p>
+          <div class="text-secondary">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 报名表单 -->
+  <section id="enroll" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">立即报名</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">填写以下信息，预约免费体验课，开启您的钢琴之旅</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="bg-light rounded-2xl p-8 shadow-lg">
+          <form id="enrollment-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+              <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-custom" placeholder="请输入您的姓名" required>
+            </div>
+            
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">手机号码</label>
+              <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-custom" placeholder="请输入您的手机号码" required>
+            </div>
+            
+            <div>
+              <label for="age" class="block text-sm font-medium text-gray-700 mb-1">年龄</label>
+              <input type="number" id="age" name="age" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-custom" placeholder="请输入您的年龄" required>
+            </div>
+            
+            <div>
+              <label for="course" class="block text-sm font-medium text-gray-700 mb-1">选择课程</label>
+              <select id="course" name="course" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-custom" required>
+                <option value="" disabled selected>请选择课程类型</option>
+                <option value="儿童启蒙课程">儿童启蒙课程 (4-8岁)</option>
+                <option value="青少年考级课程">青少年考级课程 (9-18岁)</option>
+                <option value="成人兴趣课程">成人兴趣课程 (18岁以上)</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="experience" class="block text-sm font-medium text-gray-700 mb-1">钢琴基础</label>
+              <select id="experience" name="experience" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-custom" required>
+                <option value="" disabled selected>请选择您的钢琴基础</option>
+                <option value="零基础">零基础</option>
+                <option value="入门">入门 (学过1年以内)</option>
+                <option value="初级">初级 (学过1-3年)</option>
+                <option value="中级">中级 (学过3-5年)</option>
+                <option value="高级">高级 (学过5年以上)</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言</label>
+              <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-custom" placeholder="有什么想告诉我们的？"></textarea>
+            </div>
+            
+            <div class="pt-4">
+              <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-custom">
+                提交报名信息
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="flex flex-col justify-center">
+          <div class="mb-10">
+            <h3 class="text-2xl font-bold mb-4">联系方式</h3>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="text-primary text-xl mt-1 mr-4">
+                  <i class="fa-solid fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">地址</h4>
+                  <p class="text-gray-600">北京市朝阳区建国路88号现代城SOHO A座1508室</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-primary text-xl mt-1 mr-4">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">电话</h4>
+                  <p class="text-gray-600">010-8888-7777</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-primary text-xl mt-1 mr-4">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">邮箱</h4>
+                  <p class="text-gray-600">contact@piano-studio.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-primary text-xl mt-1 mr-4">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">营业时间</h4>
+                  <p class="text-gray-600">周一至周五: 10:00 - 21:00</p>
+                  <p class="text-gray-600">周六至周日: 9:00 - 22:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold mb-4">关注我们</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                <i class="fa-brands fa-weixin text-xl"></i>
+              </a>
+              <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                <i class="fa-brands fa-weibo text-xl"></i>
+              </a>
+              <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                <i class="fa-brands fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-custom">
+                <i class="fa-brands fa-youtube text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <i class="fa-solid fa-music text-primary text-2xl"></i>
+            <span class="text-xl font-bold">琴韵钢琴工作室</span>
+          </div>
+          <p class="text-gray-400 mb-6">专注于为各年龄段学员提供专业、系统的钢琴教育，让每一位学员都能感受音乐的魅力。</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-primary transition-custom">
+              <i class="fa-brands fa-weixin text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary transition-custom">
+              <i class="fa-brands fa-weibo text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary transition-custom">
+              <i class="fa-brands fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-primary transition-custom">
+              <i class="fa-brands fa-youtube text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">快速链接</h4>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-gray-400 hover:text-primary transition-custom">首页</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-primary transition-custom">关于我们</a></li>
+            <li><a href="#courses" class="text-gray-400 hover:text-primary transition-custom">课程介绍</a></li>
+            <li><a href="#teachers" class="text-gray-400 hover:text-primary transition-custom">师资力量</a></li>
+            <li><a href="#enroll" class="text-gray-400 hover:text-primary transition-custom">立即报名</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">课程分类</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-custom">儿童启蒙课程</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-custom">青少年考级课程</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-custom">成人兴趣课程</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-custom">专业提升课程</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-custom">音乐理论课程</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">联系方式</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa-solid fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">北京市朝阳区建国路88号现代城SOHO A座1508室</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-phone text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">010-8888-7777</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-envelope text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">contact@piano-studio.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+        <p>&copy; 2023 琴韵钢琴工作室 版权所有 | 京ICP备12345678号</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 成功提示模态框 -->
+  <div id="success-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl transform transition-all">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fa-solid fa-check text-green-500 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2">报名成功！</h3>
+        <p class="text-gray-600 mb-6">感谢您的报名，我们的顾问将在24小时内与您联系，为您安排体验课。</p>
+        <button id="close-modal" class="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-custom">
+          确定
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-custom opacity-0 invisible">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('py-2', 'shadow-md');
+        navbar.classList.remove('py-3', 'shadow-sm');
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        navbar.classList.add('py-3', 'shadow-sm');
+        navbar.classList.remove('py-2', 'shadow-md');
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+      } else {
+        menuToggle.innerHTML = '<i class="fa-solid fa-times text-xl"></i>';
+      }
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // 如果是在移动设备上，点击导航项后关闭菜单
+          if (window.innerWidth < 768) {
+            mobileMenu.classList.add('hidden');
+            menuToggle.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+          }
+        }
+      });
+    });
+    
+    // 返回顶部按钮
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 表单提交
+    const enrollmentForm = document.getElementById('enrollment-form');
+    const successModal = document.getElementById('success-modal');
+    const closeModal = document.getElementById('close-modal');
+    
+    enrollmentForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // 这里可以添加表单验证和提交逻辑
+      // 例如：将表单数据发送到服务器
+      
+      // 显示成功提示
+      successModal.classList.remove('hidden');
+      
+      // 重置表单
+      enrollmentForm.reset();
+    });
+    
+    closeModal.addEventListener('click', function() {
+      successModal.classList.add('hidden');
+    });
+    
+    // 点击模态框外部关闭
+    successModal.addEventListener('click', function(e) {
+      if (e.target === successModal) {
+        successModal.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
